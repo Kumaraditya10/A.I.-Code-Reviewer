@@ -1,7 +1,7 @@
 import subprocess
 
 def getDiff():
-    diff = subprocess.run(["git", "dif"], text=True)
+    diff = subprocess.check_output(["git", "dif"], text=True)
     return diff
 
 
