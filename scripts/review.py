@@ -15,13 +15,13 @@ client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 def send_email(html_content):
     msg = EmailMessage()
     msg['Subject'] = 'Code Review Feedback'
-    msg['From'] = "adityakumarputai.gmail.com"
-    msg['To'] = "adityakumarputai.gmail.com"
+    msg['From'] = "your.email.com"
+    msg['To'] = "your.email.com"
     msg.set_content("Please find the code review feedback below")
     msg.add_alternative(html_content, subtype='html')
     
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-        smtp.login("adityakumarputai@gmail.com", os.getenv("MAIL_APP_PASSWORD"))
+        smtp.login("your@email.com", os.getenv("MAIL_APP_PASSWORD"))
         smtp.send_message(msg)
         
     return "Email sent successfully"
